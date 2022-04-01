@@ -1,0 +1,98 @@
+[
+    {   "name": "PlayStation 5",
+        "id": "playstation5",
+        "arrayGeneros": [
+            {   "name": "Aventura",
+                "id": "aventura",
+                "productos": [
+                    {"imagen":"/img/eldenring.png", "codigo":"ELRI", "descripcion":"Assassin's Creed Valhalla sdfgsdf segrsfdr serdg sdrg", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/gtav.png", "codigo":"HOLA", "descripcion":"Dragon's Dogma", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"PEPE", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"PEPO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3}
+                ]
+            },
+            {   "name": "Shooter",
+                "id": "shooter",
+                "productos": [
+                    {"imagen":"/img/eldenring.png", "codigo":"CERO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"MANI", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"JEJE", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"TUTO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3}
+                ]
+            },
+            {   "name": "Deporte",
+                "id": "deporte",
+                "productos": [
+                    {"imagen":"/img/eldenring.png", "codigo":"FHMS", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"MANO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"TUCA", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"RETO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3}
+                ]
+            }
+        ]
+    },
+    {   "name": "Xbox Series X",
+        "id": "xboxseriesx",
+        "arrayGeneros": [
+            {   "name": "Aventura",
+                "id": "aventura",
+                "productos": [
+                    {"imagen":"/img/eldenring.png", "codigo":"MASO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/gtav.png", "codigo":"TUNA", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"TARA", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"LELU", "descripcion":"Elden Ring", "precio":59.99, "unidades":3}
+                ]
+            },
+            {   "name": "Shooter",
+                "id": "shooter",
+                "productos": [
+                    {"imagen":"/img/eldenring.png", "codigo":"SOCO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"PALO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"ELRI", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"TORO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3}
+                ]
+            },
+            {   "name": "Deporte",
+                "id": "deporte",
+                "productos": [
+                    {"imagen":"/img/eldenring.png", "codigo":"MODA", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"TACO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"MONO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"DEDO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3}
+                ]
+            }
+        ]
+    },
+    {   "name": "Nintendo Switch",
+        "id": "nintendoswitch",
+        "arrayGeneros": [
+            {   "name": "Aventura",
+                "id": "aventura",
+                "productos": [
+                    {"imagen":"/img/eldenring.png", "codigo":"TESO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"TETE", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"MULO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"DOMA", "descripcion":"Elden Ring", "precio":59.99, "unidades":3}
+                ]
+            },
+            {   "name": "Shooter",
+                "id": "shooter",
+                "productos": [
+                    {"imagen":"/img/eldenring.png", "codigo":"XOCO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"FORO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"TOSA", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"CADO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3}
+                ]
+            },
+            {   "name": "Deporte",
+                "id": "deporte",
+                "productos": [
+                    {"imagen":"/img/eldenring.png", "codigo":"FOSO", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"GTAV", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"VALH", "descripcion":"Elden Ring", "precio":59.99, "unidades":3},
+                    {"imagen":"/img/eldenring.png", "codigo":"ELRI", "descripcion":"Elden Ring", "precio":59.99, "unidades":3}
+                ]
+            }
+        ]
+    }
+]
