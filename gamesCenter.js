@@ -46,7 +46,7 @@ $(document).ready(function() {
 });
 
 function addNavItem(id, name) {
-    return  "<li class='flex-fill nav-item' role='presentation'>" +
+    return  "<li class='nav-item' role='presentation'>" +
                 "<button class='nav-link' id='pills-" + id + "-tab' data-bs-toggle='pill' data-bs-target='#pills-" + id + "' type='button' role='tab' aria-controls='pills-" + id + "' aria-selected='true'>" + name + "</button>" +
             "</li>";
 }
@@ -164,14 +164,14 @@ function eventHandlers() {
         }
     });
 
-    // Evitamos el refresco de página al hacer submit en los forms
-    $("#admin-form").submit(function() {
-        return false;
-    });
-
     // Hacemos focus en el primer input del form al abrir el modal
     $( "#modal-admin, #modal-login" ).on('shown.bs.modal', function(){
         $('#' + $(this).attr('id') + ' [id^=recipient-]:first').focus();
+    });
+
+    // Borramos el texto introducido en el input principal al cerrar el modal
+    $( "#modal-admin, #modal-login" ).on('hidden.bs.modal', function(){
+        $('#' + $(this).attr('id') + ' [id^=recipient-]:first').val("");
     });
 
     $('body').on("change", "#recipient-platform", function( event ) {
@@ -184,8 +184,6 @@ function eventHandlers() {
     $('body').on("click", '#open-platform-modal, #open-genre-modal, #open-product-modal', function ( event ) {
         var tipo = $(this).attr('id').split("-")[1];
         $('#add-entity').attr('data-bs-tipo', tipo);
-
-        $('#recipient-name').val("");
 
         $('#div-select-platform').remove();
         $('#div-select-genre').remove();
