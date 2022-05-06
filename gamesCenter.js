@@ -706,14 +706,14 @@ function comprobarFormularioProducto(platformId, genreId, codigo, precioString, 
         return false;
     }
 
-    if (precioString == "" || (precioString.includes(".") && precioString.split(".")[1].length > 2)) {
-        alert("El precio no puede estar vacío ni contener más de dos decimales");
+    if (precioString == "" || (precioString.includes(".") && precioString.split(".")[1].length > 2) || parseFloat(precioString) < 0.0) {
+        alert("El precio no puede estar vacío, contener más de dos decimales o ser negativo");
         $("#recipient-precio").focus();
         return false;
     }
 
-    if (unidadesString == "" || unidadesString.includes(".")) {
-        alert("Las unidades no pueden estar vacías ni contener decimales");
+    if (unidadesString == "" || unidadesString.includes(".") || parseInt(unidadesString) < 0) {
+        alert("Las unidades no pueden estar vacías, contener decimales o ser menores a 0");
         $("#recipient-unidades").focus();
         return false;
     }
