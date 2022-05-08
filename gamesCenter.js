@@ -99,7 +99,7 @@ function addProductos(productos) {
         productos[i]['descripcion'] = productos[i]['descripcion'].replace("\'", "&#39;");
         mapaProductos.set(productos[i]['codigo'], productos[i]);
         text += "   <div class='col-12 col-lg-6 col-xl-4 d-lg-flex'>" + // d-flex hace que todas las tarjetas tengan la misma altura
-                        "<div class='card' data-codigo='" + productos[i]['codigo'] + "' style='margin-bottom: 20px;'>" +
+                        "<div class='card flex-fill' data-codigo='" + productos[i]['codigo'] + "' style='margin-bottom: 20px;'>" +
                             "<img src='" + productos[i]['imagen'] + "' alt='" + productos[i]['descripcion'] + "' class='card-img-top img-thumbnail zoom'/>" +
                             "<div class='card-body d-flex flex-column'>" + // d-flex y flex-column junto al uso de mt-auto más abajo hace que el botón se quede abajo de la tarjeta y el precio en el medio
                                 "<h4 title='" + productos[i]['descripcion'] + "' class='card-title text-center truncate'>" + productos[i]['descripcion'] + "</h4>" +
@@ -626,7 +626,7 @@ function addItemToBasket(producto, genero, plataforma) {
                 "<div class='card mb-3' data-units='1' data-codigo='" + producto['codigo'] + "'>" +
                     "<div class='row g-0'>" +
                         "<div class='col-12 col-lg-4 d-flex align-items-center'>" +
-                            "<img src='" + producto['imagen'] + "' alt='" + producto['descripcion'] + "' class='img-fluid rounded-start' >" +
+                            "<img src='" + producto['imagen'] + "' alt='" + producto['descripcion'] + "' class='img-fluid rounded-start flex-fill' >" +
                         "</div>" +
                         "<div class='col-12 col-lg-8'>" +
                             "<div class='card-body'>" +
