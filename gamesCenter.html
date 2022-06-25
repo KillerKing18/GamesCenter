@@ -24,7 +24,7 @@
                 <h1 class="ps-5 text-center">GamesCenter</h1>
             </div>
             <div class="col-2 d-flex justify-content-end">
-                <button type="button" style="height: 40px;" class="mt-2 btn btn-primary" id="top-right-button" data-bs-toggle="modal" data-bs-target="#modal-login">
+                <button type="button" style="height: 40px;" class="mt-2 btn boton" id="top-right-button" data-bs-toggle="modal" data-bs-target="#modal-login">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
@@ -50,8 +50,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="login">Log In</button>
+                    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn boton" id="login">Log In</button>
                 </div>
             </div>
         </div>
@@ -73,8 +73,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="add-entity">Añadir</button>
+                    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn boton" id="add-entity">Añadir</button>
                 </div>
             </div>
         </div>
@@ -88,7 +88,7 @@
                 <div class="mt-5" id="empty-platforms">
                     <p class="text-center">Aún no hay ninguna plataforma</p>
                 </div>
-                <div class="container bg-warning">
+                <div class="container">
                     <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
 
                     </ul>
@@ -103,15 +103,15 @@
                 <div id="empty-basket" class="mt-5">
                     <p class="text-center">Aún no hay productos en la cesta</p>
                 </div>
-                <div class="container bg-warning" id="containerCesta">
+                <div class="container" id="containerCesta">
                     <div class="card" id="total-precio-cesta">
-                        <div class="card-body">
+                        <div class="card-body total">
                             <div class="row">
                                 <h5 class="col-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-md-start justify-content-lg-start justify-content-xl-start justify-content-center">Total</h5>
                                 <h5 class="col-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-md-end justify-content-lg-end justify-content-xl-end justify-content-center" id="titulo-precio-total"></h5>
                             </div>
                             <div class="d-grid">
-                                <button type="button" class="text-break btn btn-primary" id="realizar-pedido">Realizar Pedido</button>
+                                <button type="button" class="text-break btn boton" id="realizar-pedido">Realizar Pedido</button>
                             </div>
                         </div>
                     </div>

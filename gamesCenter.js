@@ -39,6 +39,7 @@ $(document).ready(function() {
 
     // Mostramos los productos del primer género de cada plataforma
     $('.accordion-item:first-child .accordion-collapse').addClass('show');
+    $('.accordion-item:first-child .accordion-button').removeClass('collapsed'); // Esto es para que la primera flecha apunte hacia arriba
 
     $('#total-precio-cesta').hide(); // Ocultamos el total de la cesta al principio, ya que está vacía
 
@@ -76,7 +77,7 @@ function addGeneros(generos, id) {
 
         text += "<div class='accordion-item'>" +
                     "<h2 class='accordion-header' id='heading-" + generos[i]['id'] + "-" + id + "'>" +
-                        "<button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-" + generos[i]['id'] + "-" + id + "' aria-expanded='true' aria-controls='collapse-" + generos[i]['id'] + "-" + id + "'>" +
+                        "<button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-" + generos[i]['id'] + "-" + id + "' aria-expanded='true' aria-controls='collapse-" + generos[i]['id'] + "-" + id + "'>" +
                         generos[i]['name'] +
                         "</button>" +
                     "</h2>" +
@@ -100,17 +101,17 @@ function addProductos(productos) {
         mapaProductos.set(productos[i]['codigo'], productos[i]);
         text += "   <div class='col-12 col-lg-6 col-xl-4 d-lg-flex'>" + // d-flex hace que todas las tarjetas tengan la misma altura
                         "<div class='card flex-fill' data-codigo='" + productos[i]['codigo'] + "' style='margin-bottom: 20px;'>" +
-                            "<img src='" + productos[i]['imagen'] + "' alt='" + productos[i]['descripcion'] + "' class='card-img-top img-thumbnail zoom'/>" +
+                            "<img src='" + productos[i]['imagen'] + "' alt='" + productos[i]['descripcion'] + "' class='boo card-img-top img-thumbnail zoom'/>" +
                             "<div class='card-body d-flex flex-column'>" + // d-flex y flex-column junto al uso de mt-auto más abajo hace que el botón se quede abajo de la tarjeta y el precio en el medio
                                 "<h4 title='" + productos[i]['descripcion'] + "' class='card-title text-center truncate'>" + productos[i]['descripcion'] + "</h4>" +
                                 "<div class='d-flex flex-row-reverse'>" +
                                     "<span class='badge bg-secondary'>Ref.: " + productos[i]['codigo'] + "</span>" +
                                 "</div>" +
-                                "<br><h2 class='card-text mb-4 mt-auto'>" + String(productos[i]['precio']).replace(".", ",") + "€</h2>" +
+                                "<br><h2 class='card-text mb-4 mt-auto'>" + String(productos[i]['precio'].toFixed(2)).replace(".", ",") + "€</h2>" +
                                 "<div class='mt-auto'>" +
                                     "<h6 class='card-subtitle mb-2 text-muted'>" + productos[i]['unidades'] + " " + unidadesTag(productos[i]['unidades']) + " en stock" + "</h6>" +
                                     "<div class='d-grid' id='add-to-basket-div-" + productos[i]['codigo'] + "'>" +
-                                        "<button type='button' class='btn btn-primary add-to-basket " + stockAvailable(productos[i]['unidades']) + "'>Añadir a la cesta</button>" +
+                                        "<button type='button' class='btn boton add-to-basket " + stockAvailable(productos[i]['unidades']) + "'>Añadir a la cesta</button>" +
                                     "</div>" +
                                 "</div>" +
                             "</div>" +
@@ -271,8 +272,8 @@ function eventHandlers() {
 
         if (password === "admin") {
             $('#top-right-button').parent().html("<div class='btn-group'>" +
-                                                    "<button type='button' style='height: 40px;' class='mt-2 btn btn-primary dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>" +
-                                                        "Add" +
+                                                    "<button type='button' style='height: 40px;' class='mt-2 btn boton dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>" +
+                                                        "Admin" +
                                                     "</button>" +
                                                     "<ul class='dropdown-menu'>" +
                                                         "<li><a id='open-platform-modal' data-bs-toggle='modal' data-bs-target='#modal-admin' class='dropdown-item' href='#'>Añadir Plataforma</a></li>" +
@@ -454,7 +455,7 @@ function eventHandlers() {
     $('body').on("click", '#realizar-pedido', function ( event ) {
         event.preventDefault();
         
-        alert("Pedido realizado por un importe total de " + $('#titulo-precio-total').attr("data-valor").replace(".", ",") + "€");
+        alert("Pedido realizado por un importe total de " + String(parseInt($('#titulo-precio-total').attr("data-valor")).toFixed(2)).replace(".", ",") + "€");
         
         // Mostramos el mensaje de que la cesta está vacía y ocultamos el precio total
         $('#empty-basket').show();
@@ -470,7 +471,7 @@ function eventHandlers() {
             $('#add-to-basket-div-' + codigo).addClass('d-grid');
             $('#add-to-basket-div-' + codigo).removeClass('d-flex justify-content-center');
             $('#add-to-basket-div-' + codigo).empty();
-            $('#add-to-basket-div-' + codigo).append("<button type='button' class='btn btn-primary add-to-basket " + stockAvailable(mapaProductos.get(codigo)['unidades']) + "'>Añadir a la cesta</button>");
+            $('#add-to-basket-div-' + codigo).append("<button type='button' class='btn boton add-to-basket " + stockAvailable(mapaProductos.get(codigo)['unidades']) + "'>Añadir a la cesta</button>");
             $(this).remove();
 
             let genreId = $(this).attr('data-bs-genero');
@@ -546,7 +547,7 @@ function eventHandlers() {
         $('#add-to-basket-div-' + producto['codigo']).addClass('d-grid');
         $('#add-to-basket-div-' + producto['codigo']).removeClass('d-flex justify-content-center');
         $('#add-to-basket-div-' + producto['codigo']).empty();
-        $('#add-to-basket-div-' + producto['codigo']).append("<button type='button' class='btn btn-primary add-to-basket " + stockAvailable(producto['unidades']) + "'>Añadir a la cesta</button>");
+        $('#add-to-basket-div-' + producto['codigo']).append("<button type='button' class='btn boton add-to-basket " + stockAvailable(producto['unidades']) + "'>Añadir a la cesta</button>");
 
         actualizarPrecioTotal();
     });
@@ -570,7 +571,7 @@ function eventHandlers() {
         $('.span-' + producto['codigo']).html(unidades);
         
         // Actualizar precio en la cesta con las nuevas unidades
-        $('#precio-total-' + producto['codigo']).html(String(unidades * producto['precio']).replace(".", ",") + '€');
+        $('#precio-total-' + producto['codigo']).html(String((unidades * producto['precio']).toFixed(2)).replace(".", ",") + '€');
 
         // Si ahora solo hay un elemento en la cesta, cambiamos el "menos" por la papelera
         if (unidades === 1) {
@@ -605,7 +606,7 @@ function eventHandlers() {
         $('.span-' + producto['codigo']).html(unidades);
 
         // Actualizar precio en la cesta con las nuevas unidades
-        $('#precio-total-' + producto['codigo']).html(String(unidades * producto['precio']).replace(".", ",") + '€');
+        $('#precio-total-' + producto['codigo']).html(String((unidades * producto['precio']).toFixed(2)).replace(".", ",") + '€');
 
         // Si ahora hay 2 unidades en la cesta, cambiamos la papelera por un "menos"
         if (unidades === 2) {
@@ -625,7 +626,7 @@ function addItemToBasket(producto, genero, plataforma) {
     return "<div id='row-cesta-" + producto['codigo'] + "' data-bs-genero='" + genero + "' data-bs-plataforma='" + plataforma + "'>" +
                 "<div class='card mb-3' data-units='1' data-codigo='" + producto['codigo'] + "'>" +
                     "<div class='row g-0'>" +
-                        "<div class='col-12 col-lg-4 d-flex align-items-center'>" +
+                        "<div class='boo col-12 col-lg-4 d-flex align-items-center'>" +
                             "<img src='" + producto['imagen'] + "' alt='" + producto['descripcion'] + "' class='img-fluid rounded-start flex-fill' >" +
                         "</div>" +
                         "<div class='col-12 col-lg-8'>" +
@@ -638,7 +639,7 @@ function addItemToBasket(producto, genero, plataforma) {
                                     "<div class='col-12 col-xxl-8 gap-2 d-md-flex'>" +
                                             unitsEditor(producto, true) +
                                     "</div>" +
-                                    "<h5 class='justify-content-xl-start justify-content-xxl-center col-12 col-xxl-4 pb-xxl-2 pb-xl-1 pt-3 pt-xxl-0 d-flex card-text mb-4 mt-auto' id='precio-total-" + producto['codigo'] + "' style='height:1px;'>" + String(producto['precio']).replace(".", ",") + "€</h5>" + // TODO quizás poner esto y otros style en .css
+                                    "<h5 class='justify-content-xl-start justify-content-xxl-center col-12 col-xxl-4 pb-xxl-2 pb-xl-1 pt-3 pt-xxl-0 d-flex card-text mb-4 mt-auto' id='precio-total-" + producto['codigo'] + "' style='height:1px;'>" + String(producto['precio'].toFixed(2)).replace(".", ",") + "€</h5>" +
                                 "</div>" +
                             "</div>" +
                         "</div>" +
@@ -651,14 +652,14 @@ function unitsEditor(producto, basket) {
     var margin_bottom = basket ? 'mb-2 mb-md-0' : '';
     var margin_left = basket ? 'ms-3 ms-md-0' : '';
     var margin_left_span = basket ? 'ms-3 ms-md-0' : '';
-    return "<button type='button' class='" + margin_bottom + " " + margin_left + " btn btn-primary trash trash-" + producto['codigo'] + "'>" +
+    return "<button type='button' class='" + margin_bottom + " " + margin_left + " btn boton trash trash-" + producto['codigo'] + "'>" +
                 "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>" +
                     "<path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>" +
                     "<path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>" +
                 "</svg>" +
             "</button>" + 
             "<span class='" + margin_bottom + " " + margin_left_span + " d-inline-block input-group-text span-" + producto['codigo'] + "'>1</span>" +
-            "<button type='button' class='" + margin_left + " btn btn-primary plus plus-" + producto['codigo'] + stockAvailable(producto['unidades']) + "'>" +
+            "<button type='button' class='" + margin_left + " btn boton plus plus-" + producto['codigo'] + stockAvailable(producto['unidades']) + "'>" +
                 "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-plus' viewBox='0 0 16 16'>" +
                     "<path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>" +
                 "</svg>" +
@@ -684,7 +685,7 @@ function unidadesTag(unidades) {
     });
 
     $('#titulo-precio-total').attr("data-valor", precioTotal);
-    $('#titulo-precio-total').html(String(precioTotal).replace(".", ",") + "€");
+    $('#titulo-precio-total').html(String(precioTotal.toFixed(2)).replace(".", ",") + "€");
 }
 
 function comprobarFormularioProducto(platformId, genreId, codigo, precioString, unidadesString, imagen) {
