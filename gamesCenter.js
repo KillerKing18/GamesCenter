@@ -2,10 +2,10 @@ const mapaProductos = new Map();
 
 $(document).ready(function() {
     
-    /*$.getJSON("json/productos.json", function(jsonResponse) {
+    $.getJSON("json/productos.json", function(jsonResponse) {
         localStorage.clear();
         localStorage.setItem('datos', JSON.stringify(jsonResponse));
-    });*/
+    });
 
     if (localStorage.getItem('datos') == null) {
         localStorage.setItem('datos', '[]');
@@ -538,7 +538,7 @@ function eventHandlers() {
         $('#row-cesta-' + producto['codigo']).remove();
 
         // Mostramos el mensaje de que la cesta está vacía si ya no quedan productos en la cesta y ocultamos el precio total
-        if ($('#containerCesta > .row:visible').length === 0) { // hijos directos de #containerCesta que tengan la clase row y que sean visibles
+        if ($('#containerCesta > [id^=row-cesta-]').length === 0) { // hijos directos de #containerCesta cuyo identificador empiece por 'row-cesta-'
             $('#empty-basket').show();
             $('#total-precio-cesta').hide();
         }
