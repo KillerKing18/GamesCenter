@@ -4,7 +4,7 @@
 
 Install http-server by typing npm install -g http-server
 
-Change into your working directory, where yoursome.html lives
+Change into your working directory, where your some.html lives
 
 Start your http server by issuing http-server -c-1
 

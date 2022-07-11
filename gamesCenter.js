@@ -455,7 +455,7 @@ function eventHandlers() {
     $('body').on("click", '#realizar-pedido', function ( event ) {
         event.preventDefault();
         
-        alert("Pedido realizado por un importe total de " + String(parseInt($('#titulo-precio-total').attr("data-valor")).toFixed(2)).replace(".", ",") + "€");
+        alert("Pedido realizado por un importe total de " + String(parseFloat($('#titulo-precio-total').attr("data-valor")).toFixed(2)).replace(".", ",") + "€");
         
         // Mostramos el mensaje de que la cesta está vacía y ocultamos el precio total
         $('#empty-basket').show();
